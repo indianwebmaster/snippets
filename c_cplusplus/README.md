@@ -1,4 +1,7 @@
 # C and C++ snippets
+Run `make all` to build all the files and `make clean` to remove the binaries (before a git commit)
+
+1. Makefile
 1. vargs/vargs
 1. stringArray/stringArray
 1. date_funcs/date_funcs
@@ -11,4 +14,4 @@
 	1. const_matrix
 	1. dyn_matrix
 	1. int_matrix
-1. class_inheritance
+1. class_inheritance/class_inheritance
