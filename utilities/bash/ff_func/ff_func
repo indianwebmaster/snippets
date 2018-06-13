@@ -1,0 +1,28 @@
+set -x
+if [[ $0 = *"ff" ]]; then
+	find . -name "${*}*"
+elif [[ $0 = *"ffi"  ]]; then
+	find . -iname "${*}*"
+elif [[ $0 = *"fft"  ]]; then
+	find . -type f -exec grep \"$*\" {} \; -print
+elif [[ $0 = *"ffti"  ]]; then
+	find . -type f -exec grep -i \"$*\" {} \; -print
+elif [[ $0 = *"ffw" ]]; then
+	find . -name "${*}"
+elif [[ $0 = *"ffwi"  ]]; then
+	find . -iname "${*}"
+elif [[ $0 = *"ffl" ]]; then
+	ls -ald `find . -name "${*}*"`
+elif [[ $0 = *"ffil"  ]]; then
+	ls -ald `find . -iname "${*}*"`
+elif [[ $0 = *"ffwl" ]]; then
+	ls -ald `find . -name "${*}"`
+elif [[ $0 = *"ffwil"  ]]; then
+	ls -ald `find . -iname "${*}"`
+elif [[ $0 = *"ff_setup"  ]]; then
+	cd ~/bin
+	for f in ff ffi fft ffti ffw ffwi ffl ffil ffwl ffwil
+	do
+		ln -s $PWD/ff_func $f 2> /dev/null
+	done
+fi
