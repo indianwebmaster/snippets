@@ -99,6 +99,9 @@ def func_03():
     i += 1; print(i, nplist2 + 300)   # Add 300 to EACH element of array
     i += 1; print(i, nplist1 * 300)   # Multiply 300 to EACH element of array
 
+    i += 1; print(i, nplist1 == nplist1)   # Compare two mxn matrices, returns a mxn matrix with True/False
+
+
 
 # Some add/delete operations
 def func_04():
@@ -138,5 +141,5 @@ def func_04():
 
 # func_01()
 # func_02()
-# func_03()
-func_04()
+func_03()
+# func_04()
