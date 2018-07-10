@@ -129,6 +129,11 @@ def func_04():
     # Extract some elements or rows
     i += 1; print (i, nplist1[1:3])     # (from_incl, to_excl). Easy to see for a 1 dimen array
     i += 1; print (i, nplist2[1:3])     # In this case, you get "two rows from a 3x2 matrix", not 2 elements
+    i += 1; print (i, nplist1[:-1])     # All except last element
+    i += 1; print (i, nplist1[-1:])     # ONLY last element
+    i += 1; print (i, nplist2[:-1])     # All except last row
+    i += 1; print (i, nplist2[-1:])     # ONLY last row
+
 
 
 # func_01()
