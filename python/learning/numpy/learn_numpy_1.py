@@ -8,6 +8,7 @@
 
 '''
 import numpy as np
+import random
 
 # There is no difference between a simple list and numpy array at first glance
 # Print of numpy array just shows separated by spaces, instead of commas
@@ -72,6 +73,20 @@ def func_02():
     print(np.random.rand(1,2))  # Not the same as previous two, 1 row with 1 list with 2 elements
     print(np.random.rand(2,1))
 
+    print('np.random.randint')
+    print(np.random.randint(low=10,high=50,size=6))
+    print(np.random.randint(10, 50, 6))    # same as previous
+
+    print('Random without dups - 3 step process')
+    nums = np.arange(10,50)
+    np.random.shuffle(nums)
+    print(np.array(nums[:6]))
+    print('Random without dups - non-numpy process - needs import random')
+    print(np.array(random.sample(range(10,50), 6)))
+
+    print('Randomize a fixed set of numbers or characters')
+    possible_options = ['ab','bc','cd','de','ef']
+    print (np.random.choice(possible_options,20))
 
 # Next, here are some matrix arithmetic operations
 def func_03():
@@ -100,6 +115,10 @@ def func_03():
     i += 1; print(i, nplist1 * 300)   # Multiply 300 to EACH element of array
 
     i += 1; print(i, nplist1 == nplist1)   # Compare two mxn matrices, returns a mxn matrix with True/False
+    i += 1; print(i, nplist1, nplist1[nplist1 > 12]) # Find all values greater than 12
+
+    list1=[1,0,2,0]
+    i += 1; print(i, list1, np.nonzero(list1))  # Find indices of nonzero elements
 
 
 
@@ -137,9 +156,70 @@ def func_04():
     i += 1; print (i, nplist2[:-1])     # All except last row
     i += 1; print (i, nplist2[-1:])     # ONLY last row
 
+# These are somewhat "advanced", but useful operations
+def func_05():
+    # You have two arrays, which are related to each other.
+    # You want to sort one array, but retain the association with the other array
+    nplist1 = np.array(random.sample(range(10,50),10))      # array without dups
+    nplist2 = np.array(random.sample(range(10, 50), 10))    # array without dups
+    print(nplist1)
+    print(nplist2)
+    sorter = np.argsort(nplist1)
+    print(nplist1[sorter])
+    print(nplist2[sorter])
+    # --------------------------------------------------------------------------
+    # You have one array with values, and another array with index positions
+    # You want to list the array in the order of the index positions in the other array
+    nplist3 = np.array(list('0123456789'))
+    index_positions_list = np.random.randint(0,10,10)
+
+    print (nplist3)
+    print (index_positions_list)
+    # Here's the trick
+    print (nplist3[index_positions_list])
+    # --------------------------------------------------------------------------
+    # You have one array with values
+    # You want to find how many values are present smaller than each value
+    nplist4 = np.random.randint(0, 10, 10)
+    print(nplist4)
+    print(np.argsort(np.argsort(nplist4)))  # ONLY WORKS WELL FOR NON-DUP LIST
+    # --------------------------------------------------------------------------
+    # You have one array with string values, many duplicates
+    # You want to convert this to list of numbers, with each string a uniq number and dups with same number
+    nplist5 = np.random.choice(['a','b','c','d','e','f','g','h'],10)
+    uniq_list, counts_list = np.unique(nplist5, return_inverse=True)
+    print(nplist5)      # Original List
+    print(uniq_list)    # Uniq list
+    print(counts_list)  # Position list
+    # You want to convert the list of numbers back to string values
+    print(uniq_list[counts_list])   # Should be same as Original List
+    # --------------------------------------------------------------------------
+    # You have two lists, of dissimilar sizes
+    # You want to see how many entries in the one list are present in the other
+    nplist6 = np.random.randint(0,20,10)
+    nplist7 = np.random.randint(0,20,15)
+    print(nplist6)
+    print(nplist7)
+    print(np.in1d(nplist6,nplist7))     # Result list is same dimension as 1st list
+    # --------------------------------------------------------------------------
+    # You have one array with numbers, with duplicates
+    # You want a list, with maxn entries where maxn is the max_number if the array, with each entry as a count of how many times a number if found
+    nplist8 = np.random.randint(0,20,10)
+    print(nplist8)
+    print(np.bincount(nplist8))
+    # Variation - you want a parallel list to the original with just the count of each number found, not the long list
+    print(np.bincount(nplist8)[nplist8])
+    # --------------------------------------------------------------------------
+    # You have one array with numbers
+    # You want to negate all values between two numbers
+    nplist9 = np.random.randint(0,20,10)
+    print(nplist9)
+    nplist9[(nplist9 > 3) & (nplist9 < 7)] *= -1
+    print(nplist9)
 
 
 # func_01()
 # func_02()
 func_03()
 # func_04()
+# func_05()
