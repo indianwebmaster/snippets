@@ -36,3 +36,12 @@ print (list(result))
 # Or do it all in one step plus use set() or list()
 print(set(map(lambda x: math.sqrt(x), numbers)))
 print(list(map(lambda x: math.sqrt(x), numbers)))
+
+# You would think a single line for loop could also be used instead of map
+# [process-using-thing for thing in many_things]
+print([lambda x: math.sqrt(x) for y in numbers])
+# But, as you can see, this just creates multiple lambda functions. Not useful.
+# So, you change it like this ... where you execute each function by passing "y")
+print([(lambda x: math.sqrt(x))(y) for y in numbers])
+# It is not as efficient as map, as you will create the same lambda function at each iteration & execute it in this case
+
