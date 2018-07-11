@@ -1,5 +1,10 @@
+'''
+pylab is a convenience module that bulk imports matplotlib.pyplot (for plotting) and numpy (for mathematics and working with arrays)
+in a single name space. Although many examples use pylab, it is no longer recommended.
+# import pylab as plt
+'''
 import numpy as np
-import pylab as plt
+import matplotlib.pyplot as plt
 
 def test_histogram(ax):
     # make an array of random numbers with a gaussian reverse_distribution with
