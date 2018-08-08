@@ -45,6 +45,7 @@ scores_above_or_below_mean_and_platform_xbox = (reviews['score'] > mean_score) &
 extract_above_scores = reviews[scores_above_or_below_mean_and_platform_xbox]
 
 # Pandas also has a Dataframe plot operator
+# (This section is moved to pd_plot.py)
 x_axis=(reviews['platform'] == 'Xbox 360')
 x_y_axis = reviews[x_axis]['score']
 x_y_axis.plot(kind='hist')
