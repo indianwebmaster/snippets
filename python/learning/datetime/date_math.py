@@ -25,8 +25,12 @@ class DateMath:
         return DateMath.__get_other_date__(num_days_in_future, from_date)
 
     @staticmethod
+    # Returns None if date_str could not be converted to datetime format
     def str_to_date(date_str, in_format="%m-%d-%Y"):
-        converted_date = dt.datetime.strptime(date_str, in_format)
+        try:
+            converted_date = dt.datetime.strptime(date_str, in_format)
+        except ValueError as err:
+            converted_date = None
         return converted_date
 
     @staticmethod
@@ -55,3 +59,5 @@ if __name__ == '__main__':
     start_date = DateMath.str_to_date("01-01-2018")
     print(DateMath.date_to_str(DateMath.get_previous_date(2, from_date=start_date)))
     print(DateMath.date_to_str(DateMath.get_future_date(2, from_date=start_date), format="%a %d %b,%Y"))
+
+    print(DateMath.str_to_date('10-20-2018') < DateMath.str_to_date('11-20-2018'))

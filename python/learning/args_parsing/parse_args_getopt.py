@@ -9,18 +9,22 @@ user_args = {}
 
 
 def usage():
-    print (sys.argv[0] + " [--sum intval] [--name strval] [--float float_val] intval1 [intval2 ...]")
+    print (sys.argv[0] + " [-h] [--sum intval] [--name strval] [--float float_val] intval1 [intval2 ...]")
 
 
 def parse_args(args):
     try:
-        optlist, optargs = getopt.getopt(args, None, ['sum=', 'name=', 'float='])
+        optlist, optargs = getopt.getopt(args, 'h', ['sum=', 'name=', 'float='])
     except getopt.GetoptError as err:
         print (str(err))
         usage()
         sys.exit(2)
 
     for opt in optlist:
+        if opt[0] == '-h':
+            usage()
+            sys.exit(0)
+
         # Enter opt/val in dict. Remove -- from the opt
         user_args[opt[0][2:]] = opt[1]
 
