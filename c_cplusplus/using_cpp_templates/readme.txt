@@ -1,0 +1,1 @@
+The template class definition and implementation must be specified in ONE .h file, and cannot be separated into two files (.h definition, .cpp implementation). Compilers allow the inclusion of more than of the same template file with both definitions and implementations in a project, without generating linkage errors.
