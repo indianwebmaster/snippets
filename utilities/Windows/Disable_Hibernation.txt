@@ -1,0 +1,11 @@
+The file C:\hiberfil.sys is anywhere from 4-16Gb on a typical PC. The location of this file cannot be moved to a different drive. However, the option to hibernate can be turned off altogether, which would delete this file.
+
+Open a command window as administrator
+Type 'powercfg.exe /hibernate off'
+
+Sources: 
+	http://forum.sysinternals.com/change-location-of-hiberfilsys_topic26183.html - Why can't be done
+	http://superuser.com/questions/402768/can-i-set-hiberfil-sys-to-another-drive - How to turn off
+	http://support.microsoft.com/kb/920730/en-us - How to turn off & on
+
+My note: You can turn hibernate off and then on again. The 'off' deletes the file and the 'on' will allow the file to be created at a later date if required.
