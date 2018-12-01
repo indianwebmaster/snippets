@@ -1,0 +1,17 @@
+Use xcopy command to copy files over from a directory to another, skipping over files that are identical (and don't need to be copied)
+E.g. Backup the dropbox folder to an external hard drive.
+
+cd  to the dropbox folder
+	(cd C:\Users\Public\Documents\Dropbox)
+execute the command
+	xcopy /f /e /c /i /h /r /d /g /y . "E:\Backups\Dropbox"
+
+/f - Displays full source and destination file names while copying
+/e - Copies any subfolder, even if it is empty
+/c - Continues copying even if errors occur
+/i - If the destination does not exist, and you are copying more than one file, this switch assumes that the destination is a folder
+/h - Copies hidden and system files.
+/r - Overwrites read-only files
+/d - Copies all Source files that are newer than existing Destination files
+/g - Creates decrypted Destination files when the destination does not support encryption
+/y - Overwrites existing files without prompting you
