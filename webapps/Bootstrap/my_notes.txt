@@ -1,0 +1,23 @@
+Bootstrap Grid System
+Bootstrap's grid system allows up to 12 columns across the page. Group columns to create wider columns.
+The following is a basic structure of a Bootstrap grid:
+
+<div class="row">
+  <div class="col-*-*"></div>
+</div>
+<div class="row">
+  <div class="col-*1-*2”></div>
+  <div class="col-*1-*2”></div>
+  <div class="col-*1-*2”></div>
+</div>
+<div class="row">
+  ...
+</div>
+
+Where *1 is the class of grid
+	xs (for phones)
+	sm (for tablets)
+	md (for desktops)
+	lg (for larger desktops)
+
+and *2 is the col spans which should add up to 12.
